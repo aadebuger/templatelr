@@ -4,15 +4,66 @@
 #include <stdio.h>
 #include <type_traits>
 
+template <typename T> class Test
+{
+private:
+    T Val;
+public:
+    static int count;
+    Test()
+    {
+        count ++;
+        
+    }
+};
 
 
+template <typename T> void fun( const T&n)
+{
+    static int i =10;
+    std::cout<<i++;
+    return ;
+}
+template <class T> int myfunc( int )
+{
+    return 1;
+}
 
 //void f(auto (auto::*)(auto ));
 template< typename T,typename U, typename V> void f( T ( U::*)(V));
 
+// c++14
+//template<int N> void f(Array<auto,N>*);
+//template<C1 T,C2 U> void g1( const T*,U&);
+template < typename T>
+void fun(T s)
+{
+    T a;
+    return ;
+};
+char *p=0;
+
+template<typename T1,
+typename T2,
+typename T3 = int,
+typename T4 = std::string>
+class C { /*...*/ };
+
+typedef C<bool, short, long> Phil;
+
+template<class T> T g(T x=&p) { return x;}
+template <> int g<int>(int);
+template < class T>
+//typedef int g<int>(int) gd;
+
+//using gal= typename int g(int);
+//auto p = g<int>(int);
+
+//typedef  int g<int>(int)  func1;
+
 using flags = std::ios_base::fmtflags;
-flags l1;
-flags l= std::ios_base::dec;
+//flags l1;
+//flags l= std::ios_base::dec;
 using func = void (*)( int ,int );
 void example(int, int)
 {
