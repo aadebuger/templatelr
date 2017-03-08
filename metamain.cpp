@@ -3,6 +3,13 @@
 #include <algorithm>
 #include <stdio.h>
 
+
+template < unsigned long  N> struct
+binary
+{
+    static  unsigned const value = binary<N/10><<1 | N %10 ;
+};
+
 template < int N > struct Factoral 
 {
     static const int result =  N* Factoral<N-1>::result;
