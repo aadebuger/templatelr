@@ -3,6 +3,176 @@
 #include <algorithm>
 #include <stdio.h>
 #include <type_traits>
+#include <functional>
+#include <map>
+
+
+// primary template
+template < class T>  struct ptemplate : std::false_type
+{
+    
+};
+template <> struct ptemplate<void>: std::true_type
+{
+    
+};
+namespace N{
+    template <class T> class X
+    {
+        
+    };
+    template <> class X<int> {};
+    template <> class X<double> {};
+    
+    X<float> myx;
+}
+//http://en.cppreference.com/w/cpp/language/template_specialization
+
+template <class T> class Y : public N::X<double>
+{
+    
+};
+class String {};
+template <class T> class Array {};
+template <class T> void sort(Array<T> &v) {};
+void sort(Array<String> &v)
+{
+    
+}
+void sort(Array<int> &v)
+{
+    
+}
+template <class T> class X1;
+template<>  class X1<int> ;
+X1<int> *p;
+// X1<int> x;
+
+
+template< class T> struct  XX
+{
+    int  itype;
+    struct B  {};
+    
+    template <class Y> struct C  {};
+};
+template <> struct XX<int>
+{
+    void f(int);
+    
+};
+void XX<int>::f(int )
+{
+    
+}
+template <> struct XX<char>
+{
+    void f();
+};
+void XX<char>::f()
+{
+    
+}
+
+
+template<>
+template<class Y> struct XX<double>::C
+{
+    void f();
+};
+
+typedef std::function<void(void)>  voidfunc;
+using voidfunc1 = std::function<void(void)>;
+std::map<std::string ,voidfunc1> mymap;
+class myhelper {
+    enum  { aa,bb}  mytest;
+};
+template <class T> class mytest
+{
+    mytest();
+};
+template <class T> int mytestfunc( T v1, T v2)
+{
+    return 1;
+}
+/*
+void inc( int &r)
+{
+    ++r;
+    std::cout<<"inc & i="<<r<<std::endl;
+    
+}
+ */
+template <class T, class U>
+auto add(T const& t, U const& u) -> decltype(t+u) {
+    return t+u;
+}
+
+#define EULER_NUMBER 2.71828
+
+template <class T>
+T sigmoid(T n) {
+    return (1 / (1 + pow(EULER_NUMBER, -n)));
+}
+
+
+void inc( int && r)
+{
+    ++r;
+    std::cout<<"inc && i="<<r<<std::endl;
+}
+template <class traits>
+class basic_mime;
+
+namespace name
+{
+    template <class T> class MyClass { void func() {} };
+}
+
+struct A
+{
+    template <class T> class B;
+  //  template <class T> struct B<T*> {};
+ //    template<> struct B<int*> { };
+    
+};
+template <class T>
+struct mytest1 : std::false_type
+{
+    
+};
+template <> struct mytest1<void> : std::false_type
+{
+    
+};
+
+
+template <class T>
+void  sort( T arr[], int size)
+{
+    return ;
+}
+template <> void sort<char>( char arr[], int size)
+{
+    return 0;
+}
+template <int n>struct funStruct
+{
+    enum { val = 2* funStruct<n-1>::val };
+};
+template <> struct funStruct<0>
+{
+    enum {num=1};
+};
+
+
+template <typename A,typename C=char > class Aclas
+{
+public:
+    A x;
+    C  y;
+    
+};
 
 template <typename T> class Test
 {
@@ -212,5 +382,10 @@ int main( void )
     std::cout << "\n";
 
     // getchar();
+    inc(1);
+    int b=1;
+  //  inc(b);
+    std::cout<<"b="<<b<<std::endl;
+    
     return 0;
 }
