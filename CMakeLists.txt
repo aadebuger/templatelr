@@ -22,3 +22,8 @@ else()
 endif()
 
 add_executable( ${PROJECT_NAME} main.cpp )
+add_executable( metamain metamain.cpp )
+add_executable( observermain observermain.cpp )
+add_executable( queuemain queuemain.cpp )
+add_executable( dispathtable  dispatchTable.cpp )
+add_executable( tpa  tpamain.cpp )
