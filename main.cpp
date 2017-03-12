@@ -6,6 +6,24 @@
 #include <functional>
 #include <map>
 
+#include <tuple>
+#include <algorithm>
+#include <iostream>
+
+int myswap()
+{
+    int a=1;
+    int b= 2;
+    std::swap( a,b);
+    
+}
+std::tuple<int,char , std::string> getStudent(int i )
+{
+    if ( i ==0)
+        return std::make_tuple( 0,'a',"hello");
+    throw std::invalid_argument("id");
+    
+}
 
 // primary template
 template < class T>  struct ptemplate : std::false_type
