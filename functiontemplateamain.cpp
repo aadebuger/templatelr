@@ -21,8 +21,16 @@ template < int N> void f(std::array<int,N>*);
 template < int N ,typename T> void f(std::array<T,N> *);
 
 //void f(auto (auto::*)(auto));
+template < typename To, typename From> To convertfrom( From fr);
 
+template <class T> void f( T t);
+template <class X> void g( const X x);
+template <class Z> void h( Z z, Z * zp);
+    
 int main()
 {
-    
+    double d;
+    int i = convertfrom<int>( d);
+    char  c = convertfrom(d );
+    int (*ptr)( int) = convertfrom;
 }
