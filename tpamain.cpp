@@ -43,6 +43,22 @@ void g()
     f<int>(2);
   //  f3<int>(1);
 }
+template <int N>
+struct S { int  c[N];};
+
+template <const char *N>
+struct S2 {};
+template <
+ char c,
+ int ( &lv)[5],
+  int ( *p)(int),
+int (S<10>::*c )[10]
+>
+ struct  complicated
+{
+    
+};
+
 int main()
 {
     g();
