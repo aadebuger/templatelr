@@ -1,4 +1,5 @@
 
+#include <iostream>
 template <class T>
 struct S
 {
@@ -9,7 +10,17 @@ struct S<int>
 {
     void print( int ) {};
     
-}
+};
+template <class T>
+struct s_t: std::false_type
+{
+    
+};
+template <>
+struct s_t<void>: std::true_type
+{
+    
+};
 int main()
 {
 }
