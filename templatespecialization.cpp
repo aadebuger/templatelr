@@ -21,6 +21,12 @@ struct s_t<void>: std::true_type
 {
     
 };
+namespace N {
+    template <class T> class X {};
+    template <> class X<int> {};
+}
+N::X<int> xx;
+
 int main()
 {
 }
