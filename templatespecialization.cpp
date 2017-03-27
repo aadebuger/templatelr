@@ -27,6 +27,13 @@ namespace N {
 }
 N::X<int> xx;
 
+template <class T> class MyVector
+{
+private:
+    T *vector_data;
+    int size;
+    int length;
+};
 int main()
 {
 }
