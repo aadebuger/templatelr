@@ -26,7 +26,18 @@ template < typename To, typename From> To convertfrom( From fr);
 template <class T> void f( T t);
 template <class X> void g( const X x);
 template <class Z> void h( Z z, Z * zp);
-    
+template <typename T1,typename T2> void f(T1,T2);
+    template <typename T> void f(T);
+    template <typename T> void f(T*);
+
+    tempalte <class T>  void func( T a)
+    {
+        
+    }
+    template <> void func( int a )
+    {
+        
+    }
 int main()
 {
     double d;
